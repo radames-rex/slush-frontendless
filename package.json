@@ -1,0 +1,31 @@
+{
+  "name": "slush-frontendless",
+  "version": "0.1.1",
+  "description": "Generate a web project using high performance components front-end",
+  "main": "slushfile.js",
+  "keywords": [
+    "slushgenerator",
+    "html5",
+    "css3",
+    "javascript",
+    "node",
+    "angular",
+    "d3",
+    "webcomponents"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-sandman/slush-frontendless.git"
+  },
+  "dependencies": {
+    "gulp": "~3.5.6",
+    "gulp-template": "~3.1.0",
+    "gulp-install": "~0.1.1",
+    "gulp-conflict": "~0.1.1",
+    "gulp-rename": "~1.2.0",
+    "underscore.string": "~2.3.3",
+    "inquirer": "~0.4.1"
+  },
+  "author": "dev-sandman",
+  "license": "MIT"
+}
