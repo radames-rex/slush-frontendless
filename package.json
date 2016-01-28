@@ -1,6 +1,6 @@
 {
   "name": "slush-frontendless",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Generate a web project using high performance components front-end",
   "main": "slushfile.js",
   "keywords": [

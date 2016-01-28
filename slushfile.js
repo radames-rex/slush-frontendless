@@ -64,7 +64,10 @@ console.log(' ');
         type: 'checkbox',
         name: 'appLibraries',
         message: 'Select Libraries?',
-        choices: ['angular','d3','font-awesome','polymer','bootstrap','zepto'],
+        choices: ['angular','d3','font-awesome','polymer','bootstrap','zepto']
+    }, {
+        name: 'appRepository',
+        message: 'What the repository?',
     }];
 
     //Ask
@@ -91,10 +94,10 @@ console.log(' ');
                   break;
                   case 'polymer':
                     answers.appHtmlLibsCSS.push('<link rel="import" href="libraries/polymer/polymer.html">')
-                    answers.appHtmlLibsJS.push('<script scr="libraries/web_components/webcomponents.min.js"></script>')
+                    answers.appHtmlLibsJS.push('<script scr="libraries/webcomponentsjs/webcomponents.min.js"></script>')
                   break;
                   case 'bootstrap':
-                    answers.appHtmlLibsCSS.push('<link rel="stylesheet" href="libraries/bootstrap/dis/css/bootstrap.min.css">')
+                    answers.appHtmlLibsCSS.push('<link rel="stylesheet" href="libraries/bootstrap/dist/css/bootstrap.min.css">')
                   break;
                   case 'zepto':
                     answers.appHtmlLibsJS.push('<script scr="libraries/zepto/zepto.min.js"></script>')
@@ -103,8 +106,8 @@ console.log(' ');
                 answers.appLibraries[index]='"'+element+'":"latest"';
               });
               answers.appLibraries.join()
-              answers.appHtmlLibsJS.join(' \n    ')
-              answers.appHtmlLibsCSS.join(' \n    ')
+              answers.appHtmlLibsJS = answers.appHtmlLibsJS.join(' \n    ')
+              answers.appHtmlLibsCSS = answers.appHtmlLibsCSS.join(' \n    ')
             }
             gulp.src(__dirname + '/templates/**')
                 .pipe(template({
@@ -116,6 +119,7 @@ console.log(' ');
                   appEmail:answers.appEmail,
                   appName:answers.appNameSlug,
                   appAuthor:answers.appAuthorSlug,
+                  appRepository:answers.appRepository,
                   appLibraries:answers.appLibraries,
                   appHtmlLibsJS:answers.appHtmlLibsJS,
                   appHtmlLibsCSS:answers.appHtmlLibsCSS
