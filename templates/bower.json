@@ -11,6 +11,7 @@
   ],
   "license": "MIT",
   "homepage": "index.html",
+  "repository": "<%= appRepository %>",
   "private": true,
   "dependencies": {
     <%= appLibraries %>
