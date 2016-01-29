@@ -1,21 +1,25 @@
 //init modules
 var gulp = require('gulp')
 var gutil = require('gulp-util')
-var uglify = require('gulp-uglify')
+var uglify = require('gulp-uglifycss')
 var jshint = require('gulp-jshint')
 var watch = require('gulp-watch')
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 
 //tasks
-gulp.task('dist', function(){
+gulp.task('distjs', function(){
   return gulp
-    .src('app/**/*.js')
+    .src('./app/js/*.js')
     .pipe(concat('dist/js'))
     .pipe(rename('main.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/js'))
-    .src('app/**/*.css')
+    .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('distcss', function(){
+  return gulp
+    .src('app/css/*.css')
     .pipe(concat('dist/css'))
     .pipe(rename('main.min.css'))
     .pipe(uglify())
@@ -31,15 +35,13 @@ gulp.task('dist', function(){
 
 gulp.task('test', function(){
   return gulp
-    .src('app/**/*.js')
+    .src('app/js/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('default', function(){
-  gulp.run('dist','test');
-  gulp.watch('app/**',function(){
-    gutil.log('File '+event.path+' was '+event.type+', running tasks...');
-    gulp.run('dist','test');
-  });
+gulp.task('watch', function(){
+  gulp.watch('./app/js/*.js',['distjs','distcss','test']);
 });
+
+gulp.task('default', ['distjs','distcss','test','watch']);

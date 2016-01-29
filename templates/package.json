@@ -11,7 +11,11 @@
   "devDependencies": {
     "gulp": "latest",
     "gulp-util": "latest",
-    "gulp-uglify": "latest",
+    "jshint": "latest",
+    "gulp-jshint": "latest",
+    "gulp-concat": "latest",
+    "gulp-rename": "latest",
+    "gulp-uglifycss": "latest",
     "gulp-watch": "latest"
   }
 }
